@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #time{
+      display: flex;
+      height: 500px;
+      flex-direction: row;
+      justify-content:center;
+      align-items: center;
+      text-align: center;
+      font-size: 60px;
+    }
+</style>
+<body>
+    <div id="content">
+        <div id="time">
+            <div id="hour"></div>
+            <span>:</span>
+            <div id="minute"></div>
+            <span>:</span>
+            <div id="second"></div>
+        </div>
+    </div>
+    <script>
+        let hourDiv = document.getElementById("hour");
+        let minDiv = document.getElementById("minute");
+        let secDiv = document.getElementById("second");
+
+        function getNowTime() {
+            const date = new Date();
+            let hourTime = date.getHours().toString().padStart(2, "0");
+            let minTime = date.getMinutes().toString().padStart(2, "0");
+            let secTime = date.getSeconds().toString().padStart(2, "0");
+            hourDiv.innerHTML = hourTime;
+            minDiv.innerHTML = minTime;
+            secDiv.innerHTML = secTime;
+        }
+        getNowTime();
+
+        setInterval(() => {
+            getNowTime();
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
